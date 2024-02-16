@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  ems-backend:
+    build: .
+    image: ems-backend
+    environment:
+      - MONGODB_URL=mongodb://127.0.0.1:27017/ems-database
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/usr/src/ems-backend  
+    networks:
+      - node-network
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - "dbdata:/data/db"
+    networks:
+      - node-network  
+
+volumes:
+  dbdata:    
+
+networks:
+  node-network:
+    driver: bridge

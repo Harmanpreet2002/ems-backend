@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  ems-backend:
+    container_name: ems-backend
+    command: npm run dev
