@@ -42,7 +42,7 @@ app.use(compression());
 
 // enable cors
 const options = {
-  origin: "http://localhost:5173", // Update the origin
+  origin: "https://emsss.netlify.app", // Update the origin
   credentials: true,
 };
 app.use(cors(options));
